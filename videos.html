@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio de Videos | Webissor Design - Edición Profesional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ============================================== */
+        /* MISMO ESTILO ÉPICO DE LA PÁGINA PRINCIPAL      */
+        /* ============================================== */
+        
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+        :root {
+            --primary: #c79b6e;
+            --primary-dark: #a67b52;
+            --secondary: #e5d5c0;
+            --accent: #d4af37;
+            --dark: #0a0a0f;
+            --darker: #050507;
+            --light: #faf7f2;
+            --gold: #c9a77d;
+            --gradient-gold: linear-gradient(135deg, #c79b6e 0%, #e5d5c0 100%);
+            --shadow-gold: 0 15px 30px -10px rgba(199, 155, 110, 0.3);
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        /* ===== FONDO CINEMATOGRÁFICO ===== */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 30% 40%, rgba(199, 155, 110, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(0,0,0,0.9) 0%, transparent 60%),
+                        var(--darker);
+        }
+
+        .noise {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJmIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc0IiBudW1PY3RhdmVzPSIzIiAvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNmKSIgb3BhY2l0eT0iMC4wNCIgLz48L3N2Zz4=');
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        /* ===== HEADER DE LUJO ===== */
+        header {
+            background: rgba(5, 5, 7, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(199, 155, 110, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .back-link {
+            color: var(--light);
+            font-size: 1rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 300;
+        }
+
+        .back-link i {
+            color: var(--gold);
+        }
+
+        .back-link:hover {
+            color: var(--gold);
+            transform: translateX(-5px);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-left: auto;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            position: relative;
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--gold);
+            transform: rotate(45deg);
+            transition: var(--transition);
+        }
+
+        .logo-icon::after {
+            content: 'W';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--gold);
+        }
+
+        .logo span {
+            font-size: 1rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .logo span strong {
+            font-weight: 700;
+            color: var(--gold);
+            display: block;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+        }
+
+        /* ===== CONTENEDOR PRINCIPAL ===== */
+        .portfolio-container {
+            max-width: 1400px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .portfolio-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .portfolio-header .small {
+            font-size: 0.8rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-header h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-header h1 span {
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .portfolio-header .line {
+            width: 80px;
+            height: 2px;
+            background: var(--gold);
+            margin: 1.5rem auto;
+        }
+
+        .portfolio-header p {
+            color: var(--secondary);
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* ===== FILTROS ===== */
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid rgba(199, 155, 110, 0.3);
+            color: var(--light);
+            padding: 0.8rem 2rem;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-gold);
+        }
+
+        /* ===== GRID DE VIDEOS ===== */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .video-card {
+            background: rgba(10, 10, 15, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(199, 155, 110, 0.1);
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .video-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+            box-shadow: var(--shadow-gold);
+        }
+
+        .video-thumbnail {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+            filter: grayscale(70%) contrast(110%);
+        }
+
+        .video-card:hover .video-thumbnail img {
+            transform: scale(1.05);
+            filter: grayscale(0%) contrast(100%);
+        }
+
+        .play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .video-card:hover .play-overlay {
+            opacity: 1;
+        }
+
+        .play-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            font-size: 1.5rem;
+            transform: scale(0.8);
+            transition: var(--transition);
+        }
+
+        .video-card:hover .play-icon {
+            transform: scale(1);
+        }
+
+        .video-info {
+            padding: 1.5rem;
+        }
+
+        .video-category {
+            color: var(--gold);
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .video-info h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .video-info p {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            font-weight: 300;
+            opacity: 0.7;
+        }
+
+        /* ===== MODAL CINEMATOGRÁFICO PARA VIDEOS ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.98);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .modal.active {
+            display: flex;
+            opacity: 1;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 1000px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            border: 2px solid rgba(199, 155, 110, 0.3);
+            box-shadow: 0 0 40px rgba(199, 155, 110, 0.2);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            color: var(--light);
+            font-size: 2rem;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            background: rgba(199, 155, 110, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            z-index: 1001;
+        }
+
+        .close-modal:hover {
+            background: var(--gold);
+            color: var(--dark);
+            transform: rotate(90deg);
+        }
+
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            left: -80px;
+            right: -80px;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+        }
+
+        .modal-nav button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(199, 155, 110, 0.2);
+            border: none;
+            color: var(--light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            pointer-events: auto;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-nav button:hover {
+            background: var(--gold);
+            color: var(--dark);
+            transform: scale(1.1);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--darker);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(199, 155, 110, 0.1);
+        }
+
+        footer p {
+            color: var(--secondary);
+            opacity: 0.5;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .modal-nav {
+                left: 0;
+                right: 0;
+                padding: 0 20px;
+            }
+            
+            .close-modal {
+                top: -40px;
+                right: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .video-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+            
+            .portfolio-header h1 {
+                font-size: 2rem;
+            }
+            
+            .filters {
+                flex-direction: column;
+                padding: 0 2rem;
+            }
+            
+            .filter-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Fondo -->
+    <div class="background">
+        <div class="noise"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Inicio
+        </a>
+        <div class="logo">
+            <div class="logo-icon"></div>
+            <span>WEBISSOR<strong>VIDEOS</strong></span>
+        </div>
+    </header>
+
+    <div class="portfolio-container">
+        <div class="portfolio-header">
+            <span class="small">Mi Trabajo</span>
+            <h1>Portafolio de <span>Videos</span></h1>
+            <div class="line"></div>
+            <p>Explora mi trabajo como editor de video. Cada proyecto cuenta una historia única.</p>
+        </div>
+
+        <!-- Filtros -->
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="edicion">Edición</button>
+            <button class="filter-btn" data-filter="color">Colorización</button>
+            <button class="filter-btn" data-filter="motion">Motion Graphics</button>
+        </div>
+
+        <!-- Grid de Videos -->
+        <div class="video-grid" id="videoGrid"></div>
+    </div>
+
+    <!-- Modal de Video -->
+    <div class="modal" id="videoModal">
+        <span class="close-modal" id="closeModal"><i class="fas fa-times"></i></span>
+        <div class="modal-content">
+            <div class="video-wrapper" id="videoWrapper">
+                <!-- El iframe se insertará aquí -->
+            </div>
+        </div>
+        <div class="modal-nav">
+            <button id="prevVideo"><i class="fas fa-chevron-left"></i></button>
+            <button id="nextVideo"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Webissor Design. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // ============================================
+            // TUS 8 VIDEOS DE GOOGLE DRIVE
+            // ============================================
+            const videos = [
+                {
+                    id: '1EozihR0yINGX28pOrgiL_zliqObLm9jy',
+                    title: 'Video 1 - Edición Cinematográfica',
+                    category: 'edicion',
+                    description: 'Edición profesional con estilo cinematográfico'
+                },
+                {
+                    id: '1bu0R3x--pqitbIrR8qygVQLMOrWywfrU',
+                    title: 'Video 2 - Colorización',
+                    category: 'color',
+                    description: 'Gradación de color y corrección cromática'
+                },
+                {
+                    id: '1bz3mxyMeyPC8m0A_AXy2Dikby9Hi2aQc',
+                    title: 'Video 3 - Motion Graphics',
+                    category: 'motion',
+                    description: 'Animación y gráficos en movimiento'
+                },
+                {
+                    id: '1R8TfFOWLFOLI-owSUKVIW7gL9M-1l2L1',
+                    title: 'Video 4 - Edición Creativa',
+                    category: 'edicion',
+                    description: 'Edición dinámica para redes sociales'
+                },
+                {
+                    id: '1tigRlqmoxGhUvKX87NejV174TqMzprHp',
+                    title: 'Video 5 - Color Grading',
+                    category: 'color',
+                    description: 'Look cinematográfico profesional'
+                },
+                {
+                    id: '16WkxqHBIJ3X0r9paj5Ywtduayt2uZhGU',
+                    title: 'Video 6 - Animación',
+                    category: 'motion',
+                    description: 'Motion graphics y tipografía animada'
+                },
+                {
+                    id: '1wwWHQ-rvYl8S3vByKrQnxrkfCOwBqB6f',
+                    title: 'Video 7 - Edición Avanzada',
+                    category: 'edicion',
+                    description: 'Edición multicámara y efectos'
+                },
+                {
+                    id: '1ACvpp0J8fz4LGZRTaodVDAqMT-87I6LU',
+                    title: 'Video 8 - Composición',
+                    category: 'motion',
+                    description: 'Composición digital y efectos visuales'
+                }
+            ];
+
+            // Miniaturas predefinidas (puedes personalizarlas)
+            const thumbnails = [
+                'https://images.unsplash.com/photo-1536240474400-95dad987e44f?w=400',
+                'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=400',
+                'https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=400',
+                'https://images.unsplash.com/photo-1578022761797-b8636ac1773c?w=400',
+                'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=400',
+                'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400',
+                'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=400',
+                'https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=400'
+            ];
+
+            const videoGrid = document.getElementById('videoGrid');
+            const modal = document.getElementById('videoModal');
+            const videoWrapper = document.getElementById('videoWrapper');
+            const closeModal = document.getElementById('closeModal');
+            const prevBtn = document.getElementById('prevVideo');
+            const nextBtn = document.getElementById('nextVideo');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            
+            let currentIndex = 0;
+            let filteredVideos = [...videos];
+
+            // Renderizar videos
+            function renderVideos(videosToRender) {
+                videoGrid.innerHTML = '';
+                videosToRender.forEach((video, index) => {
+                    const videoCard = document.createElement('div');
+                    videoCard.className = 'video-card';
+                    videoCard.dataset.index = index;
+                    videoCard.dataset.category = video.category;
+                    videoCard.innerHTML = `
+                        <div class="video-thumbnail">
+                            <img src="${thumbnails[index % thumbnails.length]}" alt="${video.title}">
+                            <div class="play-overlay">
+                                <div class="play-icon">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <span class="video-category">${video.category.toUpperCase()}</span>
+                            <h3>${video.title}</h3>
+                            <p>${video.description}</p>
+                        </div>
+                    `;
+                    videoCard.addEventListener('click', () => openVideo(index));
+                    videoGrid.appendChild(videoCard);
+                });
+            }
+
+            // Función para obtener el ID de embed de Google Drive
+            function getGoogleDriveEmbedUrl(fileId) {
+                return `https://drive.google.com/file/d/${fileId}/preview`;
+            }
+
+            // Abrir video en modal
+            function openVideo(index) {
+                const actualIndex = videos.findIndex(v => v.id === filteredVideos[index].id);
+                currentIndex = actualIndex;
+                updateVideoPlayer();
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            // Actualizar reproductor
+            function updateVideoPlayer() {
+                const video = videos[currentIndex];
+                const embedUrl = getGoogleDriveEmbedUrl(video.id);
+                videoWrapper.innerHTML = `
+                    <iframe src="${embedUrl}" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                `;
+            }
+
+            // Cerrar modal
+            function closeModalHandler() {
+                modal.classList.remove('active');
+                videoWrapper.innerHTML = '';
+                document.body.style.overflow = '';
+            }
+
+            // Navegación
+            function nextVideo() {
+                currentIndex = (currentIndex + 1) % videos.length;
+                updateVideoPlayer();
+            }
+
+            function prevVideo() {
+                currentIndex = (currentIndex - 1 + videos.length) % videos.length;
+                updateVideoPlayer();
+            }
+
+            // Filtros
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    const filter = btn.dataset.filter;
+                    if (filter === 'all') {
+                        filteredVideos = [...videos];
+                    } else {
+                        filteredVideos = videos.filter(v => v.category === filter);
+                    }
+                    
+                    renderVideos(filteredVideos);
+                });
+            });
+
+            // Event listeners
+            closeModal.addEventListener('click', closeModalHandler);
+            nextBtn.addEventListener('click', nextVideo);
+            prevBtn.addEventListener('click', prevVideo);
+
+            // Teclas
+            document.addEventListener('keydown', (e) => {
+                if (!modal.classList.contains('active')) return;
+                
+                if (e.key === 'Escape') closeModalHandler();
+                if (e.key === 'ArrowRight') nextVideo();
+                if (e.key === 'ArrowLeft') prevVideo();
+            });
+
+            // Cerrar haciendo clic fuera
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModalHandler();
+            });
+
+            // Render inicial
+            renderVideos(videos);
+        });
+    </script>
+</body>
+</html>
