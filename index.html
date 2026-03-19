@@ -3,14 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio de Imágenes | Webissor Design - Diseño Gráfico Profesional</title>
+    <title>Webissor Design | Director Creativo & Editor Audiovisual</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* ============================================== */
-        /* MISMO ESTILO ÉPICO - WEBISSOR DESIGN           */
+        /* WEBISSOR DESIGN - VERSIÓN ÉPICA PROFESIONAL    */
+        /* Diseño: Cinematográfico | Artístico | Premium  */
         /* ============================================== */
-        
+
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         :root {
             --primary: #c79b6e;
@@ -21,20 +28,16 @@
             --darker: #050507;
             --light: #faf7f2;
             --gold: #c9a77d;
+            --gradient-dark: linear-gradient(165deg, #000000 0%, #1a1a1a 100%);
             --gradient-gold: linear-gradient(135deg, #c79b6e 0%, #e5d5c0 100%);
+            --shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
             --shadow-gold: 0 15px 30px -10px rgba(199, 155, 110, 0.3);
             --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
             font-family: 'Montserrat', sans-serif;
-            background: var(--darker);
+            background-color: var(--dark);
             color: var(--light);
             line-height: 1.6;
             overflow-x: hidden;
@@ -48,9 +51,26 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: radial-gradient(circle at 30% 40%, rgba(199, 155, 110, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 80%, rgba(0,0,0,0.9) 0%, transparent 60%),
-                        var(--darker);
+        }
+
+        .video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+            filter: grayscale(100%) contrast(120%);
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 40%, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.9) 100%);
         }
 
         .noise {
@@ -60,61 +80,40 @@
             width: 100%;
             height: 100%;
             background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJmIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc0IiBudW1PY3RhdmVzPSIzIiAvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNmKSIgb3BhY2l0eT0iMC4wNCIgLz48L3N2Zz4=');
-            opacity: 0.1;
+            opacity: 0.15;
             pointer-events: none;
         }
 
         /* ===== HEADER DE LUJO ===== */
         header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.8rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: var(--transition);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
+        }
+
+        header.scrolled {
+            padding: 1rem 5%;
             background: rgba(5, 5, 7, 0.95);
             backdrop-filter: blur(20px);
-            padding: 1rem 5%;
-            position: sticky;
-            top: 0;
-            z-index: 100;
             border-bottom: 1px solid rgba(199, 155, 110, 0.2);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .back-link {
-            color: var(--light);
-            font-size: 1rem;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: var(--transition);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 300;
-        }
-
-        .back-link i {
-            color: var(--gold);
-            transition: var(--transition);
-        }
-
-        .back-link:hover {
-            color: var(--gold);
-            transform: translateX(-5px);
-        }
-
-        .back-link:hover i {
-            transform: translateX(-3px);
         }
 
         .logo {
             display: flex;
             align-items: center;
             gap: 15px;
-            margin-left: auto;
         }
 
         .logo-icon {
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             position: relative;
         }
 
@@ -134,152 +133,382 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 1.4rem;
+            font-size: 1.8rem;
             font-weight: 800;
             color: var(--gold);
+            text-shadow: 0 0 15px rgba(199, 155, 110, 0.5);
         }
 
-        .logo span {
-            font-size: 1rem;
+        .logo-text {
+            font-size: 1.4rem;
             font-weight: 300;
-            letter-spacing: 2px;
-        }
-
-        .logo span strong {
-            font-weight: 700;
-            color: var(--gold);
-            display: block;
-            font-size: 0.8rem;
             letter-spacing: 3px;
         }
 
-        /* ===== CONTENEDOR PRINCIPAL ===== */
-        .portfolio-container {
-            max-width: 1400px;
-            margin: 3rem auto;
-            padding: 0 2rem;
+        .logo-text span {
+            font-weight: 700;
+            color: var(--gold);
+            display: block;
+            font-size: 1rem;
+            letter-spacing: 5px;
         }
 
-        .portfolio-header {
+        nav ul {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: var(--transition);
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        nav a:hover::before {
+            width: 100%;
+        }
+
+        .header-cta {
+            background: transparent;
+            border: 1.5px solid var(--gold);
+            color: var(--gold);
+            padding: 0.8rem 2rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .header-cta:hover {
+            background: var(--gold);
+            color: var(--dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-gold);
+        }
+
+        /* ===== HERO SECTION ÉPICA ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
             text-align: center;
+            z-index: 2;
+        }
+
+        .hero-subtitle {
+            font-size: 0.9rem;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease;
+            opacity: 0.8;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero h1 .line {
+            display: block;
+        }
+
+        .hero h1 .line:first-child {
+            font-weight: 300;
+            color: var(--secondary);
+        }
+
+        .hero h1 .line:last-child {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--secondary);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            animation: fadeInUp 1s ease 0.4s both;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== BOTONES GEMELOS (VIDEOS + IMÁGENES) ===== */
+        .hero-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
             margin-bottom: 4rem;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .btn-video, .btn-image {
+            padding: 1.2rem 3rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-video {
+            background: transparent;
+            color: var(--light);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-video::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gold);
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .btn-video:hover {
+            color: var(--dark);
+        }
+
+        .btn-video:hover::before {
+            left: 0;
+        }
+
+        .btn-image {
+            background: var(--gold);
+            color: var(--dark);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-image:hover {
+            background: transparent;
+            color: var(--gold);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-gold);
+        }
+
+        .btn-video i, .btn-image i {
+            font-size: 1.3rem;
+        }
+
+        /* ===== ESTADÍSTICAS ===== */
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            animation: fadeInUp 1s ease 0.8s both;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--secondary);
+            opacity: 0.7;
+        }
+
+        /* ===== SECCIONES ===== */
+        section {
+            padding: 6rem 5%;
             position: relative;
         }
 
-        .portfolio-header .small {
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title .small {
             font-size: 0.8rem;
             letter-spacing: 5px;
             text-transform: uppercase;
             color: var(--gold);
             display: block;
             margin-bottom: 0.5rem;
-            opacity: 0.8;
         }
 
-        .portfolio-header h1 {
-            font-size: 3rem;
+        .section-title h2 {
+            font-size: 2.8rem;
             font-weight: 300;
             text-transform: uppercase;
-            margin-bottom: 1rem;
         }
 
-        .portfolio-header h1 span {
+        .section-title h2 strong {
             font-weight: 700;
             color: var(--gold);
         }
 
-        .portfolio-header .line {
+        .section-title .line {
             width: 80px;
             height: 2px;
             background: var(--gold);
             margin: 1.5rem auto;
         }
 
-        .portfolio-header p {
-            color: var(--secondary);
-            opacity: 0.8;
-            max-width: 600px;
-            margin: 0 auto;
-            font-weight: 300;
-        }
-
-        /* ===== FILTROS ===== */
-        .filters {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            background: transparent;
-            border: 1px solid rgba(199, 155, 110, 0.3);
-            color: var(--light);
-            padding: 0.8rem 2rem;
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: var(--transition);
-            font-weight: 500;
-            border-radius: 0;
-        }
-
-        .filter-btn:hover,
-        .filter-btn.active {
-            background: var(--gold);
-            border-color: var(--gold);
-            color: var(--dark);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-gold);
-        }
-
-        /* ===== GRID DE IMÁGENES ===== */
-        .image-grid {
+        /* ===== SERVICIOS ===== */
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .image-item {
+        .service-card {
             background: rgba(10, 10, 15, 0.7);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(199, 155, 110, 0.1);
-            overflow: hidden;
+            padding: 2.5rem 2rem;
+            text-align: center;
             transition: var(--transition);
             position: relative;
-            cursor: pointer;
-            aspect-ratio: 1/1;
+            overflow: hidden;
         }
 
-        .image-item:hover {
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(199, 155, 110, 0.03));
+            transform: translateX(-100%);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
             transform: translateY(-10px);
             border-color: var(--gold);
             box-shadow: var(--shadow-gold);
         }
 
-        .image-thumbnail {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
+        .service-card:hover::before {
+            transform: translateX(0);
         }
 
-        .image-thumbnail img {
+        .service-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .service-card p {
+            color: var(--secondary);
+            font-weight: 300;
+            opacity: 0.8;
+        }
+
+        /* ===== PORTFOLIO PREVIEW ===== */
+        .portfolio-showcase {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .showcase-item {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 1/1;
+            cursor: pointer;
+        }
+
+        .showcase-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: var(--transition);
-            filter: grayscale(70%) contrast(110%);
+            filter: grayscale(100%) contrast(110%);
         }
 
-        .image-item:hover .image-thumbnail img {
-            transform: scale(1.05);
+        .showcase-item:hover img {
+            transform: scale(1.1);
             filter: grayscale(0%) contrast(100%);
         }
 
-        .image-overlay {
+        .showcase-overlay {
             position: absolute;
             bottom: -100%;
             left: 0;
@@ -289,221 +518,180 @@
             transition: var(--transition);
         }
 
-        .image-item:hover .image-overlay {
+        .showcase-item:hover .showcase-overlay {
             bottom: 0;
         }
 
-        .image-category {
+        .showcase-overlay h4 {
             color: var(--gold);
-            font-size: 0.7rem;
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .showcase-overlay p {
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        .view-all {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .view-all a {
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 0.9rem;
             letter-spacing: 3px;
             text-transform: uppercase;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        .image-overlay h3 {
-            font-size: 1.1rem;
-            font-weight: 500;
-            margin-bottom: 0.3rem;
-        }
-
-        .image-overlay p {
-            color: var(--secondary);
-            font-size: 0.8rem;
-            font-weight: 300;
-            opacity: 0.7;
-        }
-
-        /* ===== MODAL CINEMATOGRÁFICO ===== */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.98);
-            z-index: 1000;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .modal.active {
-            display: flex;
-            opacity: 1;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            position: relative;
-            max-width: 90vw;
-            max-height: 90vh;
-        }
-
-        .modal-content img {
-            max-width: 100%;
-            max-height: 90vh;
-            object-fit: contain;
-            border: 2px solid rgba(199, 155, 110, 0.3);
-            box-shadow: 0 0 50px rgba(199, 155, 110, 0.2);
-        }
-
-        .modal-info {
-            position: absolute;
-            bottom: -60px;
-            left: 0;
-            right: 0;
-            text-align: center;
-            color: var(--light);
-        }
-
-        .modal-info h3 {
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin-bottom: 0.3rem;
-            color: var(--gold);
-        }
-
-        .modal-info p {
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: -50px;
-            right: -50px;
-            color: var(--light);
-            font-size: 2rem;
-            cursor: pointer;
-            width: 50px;
-            height: 50px;
-            background: rgba(199, 155, 110, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            border-bottom: 1px solid var(--gold);
+            padding-bottom: 0.3rem;
             transition: var(--transition);
-            z-index: 1001;
         }
 
-        .close-modal:hover {
-            background: var(--gold);
-            color: var(--dark);
-            transform: rotate(90deg);
-        }
-
-        .modal-nav {
-            position: absolute;
-            top: 50%;
-            left: -80px;
-            right: -80px;
-            transform: translateY(-50%);
-            display: flex;
-            justify-content: space-between;
-            pointer-events: none;
-        }
-
-        .modal-nav button {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: rgba(199, 155, 110, 0.2);
-            border: none;
+        .view-all a:hover {
             color: var(--light);
-            font-size: 1.5rem;
-            cursor: pointer;
-            pointer-events: auto;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            border-color: var(--light);
         }
 
-        .modal-nav button:hover {
-            background: var(--gold);
-            color: var(--dark);
-            transform: scale(1.1);
-        }
-
-        /* ===== CONTADOR DE PROYECTOS ===== */
-        .project-counter {
-            text-align: center;
-            margin-bottom: 2rem;
-            font-size: 0.9rem;
-            color: var(--gold);
-            letter-spacing: 2px;
-        }
-
-        .project-counter span {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin: 0 0.3rem;
-        }
-
-        /* ===== FOOTER ===== */
+        /* ===== FOOTER ÉPICO ===== */
         footer {
             background: var(--darker);
-            padding: 2rem;
-            text-align: center;
-            margin-top: 4rem;
+            padding: 4rem 5% 2rem;
             border-top: 1px solid rgba(199, 155, 110, 0.1);
         }
 
-        footer p {
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            text-align: center;
+        }
+
+        .footer-logo .logo-icon {
+            margin: 0 auto 1rem;
+        }
+
+        .footer-logo h3 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+        }
+
+        .footer-logo h3 span {
+            color: var(--gold);
+            font-weight: 700;
+            display: block;
+            font-size: 0.9rem;
+            letter-spacing: 5px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-social a {
+            color: var(--secondary);
+            font-size: 1.3rem;
+            transition: var(--transition);
+            width: 50px;
+            height: 50px;
+            border: 1px solid rgba(199, 155, 110, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .footer-social a:hover {
+            color: var(--gold);
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .footer-copyright {
             color: var(--secondary);
             opacity: 0.5;
             font-size: 0.8rem;
             letter-spacing: 2px;
+            margin-top: 2rem;
+        }
+
+        /* ===== BOTÓN WHATSAPP FLOTANTE ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: #25d366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+            transition: var(--transition);
+            z-index: 99;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.5);
         }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
-            .modal-nav {
-                left: 0;
-                right: 0;
-                padding: 0 20px;
-            }
-            
-            .close-modal {
-                top: -40px;
-                right: 0;
+            .portfolio-showcase {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (max-width: 768px) {
-            .image-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-            
-            .portfolio-header h1 {
-                font-size: 2rem;
-            }
-            
-            .filters {
+            header {
                 flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
                 padding: 0 2rem;
             }
-            
-            .filter-btn {
+
+            .btn-video, .btn-image {
                 width: 100%;
+                justify-content: center;
             }
-            
-            .modal-info {
-                bottom: -80px;
+
+            .hero-stats {
+                flex-wrap: wrap;
+                gap: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
             }
         }
 
         @media (max-width: 480px) {
-            .image-grid {
+            .portfolio-showcase {
                 grid-template-columns: 1fr;
-            }
-            
-            .logo span {
-                display: none;
             }
         }
     </style>
@@ -511,219 +699,203 @@
 <body>
     <!-- Fondo Cinematográfico -->
     <div class="background">
+        <video class="video-bg" autoplay muted loop playsinline>
+            <!-- Recomiendo usar un video de textura o partículas -->
+            <source src="https://player.vimeo.com/external/370331493.sd.mp4?s=90c23f53e8501b7a1d5c0d2f6a5d3f5e5b5c6d7e&profile_id=139" type="video/mp4">
+        </video>
+        <div class="overlay"></div>
         <div class="noise"></div>
     </div>
 
-    <!-- Header de Lujo -->
-    <header>
-        <a href="index.html" class="back-link">
-            <i class="fas fa-arrow-left"></i> Inicio
-        </a>
+    <!-- Header -->
+    <header id="header">
         <div class="logo">
             <div class="logo-icon"></div>
-            <span>WEBISSOR<strong>IMÁGENES</strong></span>
-        </div>
-    </header>
-
-    <div class="portfolio-container">
-        <div class="portfolio-header">
-            <span class="small">Mi Portafolio</span>
-            <h1>Diseño <span>Gráfico</span></h1>
-            <div class="line"></div>
-            <p>Explora mi trabajo en diseño gráfico, creación de logos, portadas y material visual.</p>
-        </div
-
-        <!-- Filtros por categoría -->
-        <div class="filters">
-            <button class="filter-btn active" data-filter="all">Todos</button>
-            <button class="filter-btn" data-filter="Ecard">Ecards</button>
-            <button class="filter-btn" data-filter="Logo">Logos</button>
-            <button class="filter-btn" data-filter="Web Design">Web Design</button>
-        </div>
-
-        <!-- Contador de proyectos -->
-        <div class="project-counter" id="projectCounter">
-            Mostrando <span id="visibleCount">0</span> de <span id="totalCount">0</span> proyectos
-        </div>
-
-        <!-- Grid de Imágenes -->
-        <div class="image-grid" id="imageGrid"></div>
-    </div>
-
-    <!-- Modal de Imagen -->
-    <div class="modal" id="imageModal">
-        <span class="close-modal" id="closeModal"><i class="fas fa-times"></i></span>
-        <div class="modal-content">
-            <img src="" alt="" id="modalImage">
-            <div class="modal-info" id="modalInfo">
-                <h3 id="modalTitle"></h3>
-                <p id="modalCategory"></p>
+            <div class="logo-text">
+                WEBISSOR<span>DESIGN</span>
             </div>
         </div>
-        <div class="modal-nav">
-            <button id="prevImage"><i class="fas fa-chevron-left"></i></button>
-            <button id="nextImage"><i class="fas fa-chevron-right"></i></button>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="portafolio.html">Portafolio</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+        <a href="#contacto" class="header-cta">Hablemos</a>
+    </header>
+
+    <!-- Hero Section Épico -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <div class="hero-subtitle">Director Creativo & Editor</div>
+            <h1>
+                <span class="line">Transformando</span>
+                <span class="line">Visiones en Realidad</span>
+            </h1>
+            <p class="hero-description">
+                Especialista en edición de video, diseño gráfico y creación de contenido visual que cautiva, comunica y convierte.
+            </p>
+            
+            <!-- BOTONES GEMELOS - NUEVO -->
+            <div class="hero-buttons">
+                <a href="videos.html" class="btn-video">
+                    <i class="fas fa-play"></i> Videos Editados
+                </a>
+                <a href="portafolio.html" class="btn-image">
+                    <i class="fas fa-camera"></i> Imágenes Editadas
+                </a>
+            </div>
+
+            <!-- Estadísticas -->
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">Proyectos</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Satisfacción</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Años</div>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios">
+        <div class="section-title">
+            <span class="small">Mi Expertise</span>
+            <h2>Servicios <strong>Creativos</strong></h2>
+            <div class="line"></div>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-video"></i></div>
+                <h3>Edición de Video</h3>
+                <p>Edición profesional para YouTube, redes sociales, eventos y contenido corporativo.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+                <h3>Diseño Gráfico</h3>
+                <p>Logos, banners, flyers y piezas gráficas con identidad visual única.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-image"></i></div>
+                <h3>Miniaturas & Portadas</h3>
+                <p>Diseños que maximizan el CTR en YouTube, TikTok e Instagram.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-pen-nib"></i></div>
+                <h3>Creación de Logos</h3>
+                <p>Identidad de marca profesional que diferencia tu negocio.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Preview -->
+    <section>
+        <div class="section-title">
+            <span class="small">Trabajo Reciente</span>
+            <h2>Portafolio <strong>Destacado</strong></h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="portfolio-showcase">
+            <div class="showcase-item">
+                <img src="IMAGENES/WEBISSSOR WEB/1.png" alt="Portada Facebook">
+                <div class="showcase-overlay">
+                    <h4>Portada Facebook</h4>
+                    <p>Diseño Futurista</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="IMAGENES/LOGOS/logo 1.png" alt="Logo">
+                <div class="showcase-overlay">
+                    <h4>IronLion Studio</h4>
+                    <p>Branding</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="IMAGENES/WEBISSSOR WEB/3.png" alt="Flyer">
+                <div class="showcase-overlay">
+                    <h4>Flyer Musical</h4>
+                    <p>Diseño Artístico</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="IMAGENES/WEBISSSOR WEB/INSTA.jpg" alt="Instagram">
+                <div class="showcase-overlay">
+                    <h4>Portada Instagram</h4>
+                    <p>Estilo Creativo</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="view-all">
+            <a href="portafolio.html">Ver Todo el Portafolio <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer>
-        <p>© 2025 Webissor Design. Todos los derechos reservados.</p>
+    <footer id="contacto">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="logo-icon" style="margin: 0 auto 1rem;"></div>
+                <h3>WEBISSOR<span>DESIGN</span></h3>
+            </div>
+            <p style="color: var(--secondary); opacity: 0.8;">Creando experiencias visuales que trascienden</p>
+            <div class="footer-social">
+                <a href="https://web.facebook.com/profile.php?id=61581867222479"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://wa.me/573249858782?text=%C2%A1Hola!%20Vi%20tu%20portafolio%20y%20me%20encantar%C3%ADa%20trabajar%20contigo."><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="footer-copyright">
+                © 2025 Webissor Design. Todos los derechos reservados.
+            </div>
+        </div>
     </footer>
 
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/573249858782?text=%C2%A1Hola!%20Vi%20tu%20portafolio%20y%20me%20encantar%C3%ADa%20trabajar%20contigo." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // ============================================
-            // CONFIGURACIÓN DE IMÁGENES
-            // ============================================
-            const portfolioImages = [
-                // ECards (54 imágenes)
-                ...Array.from({length: 54}, (_, i) => ({
-                    url: `IMAGENES/Copia de Ecard  General/${i + 1}.png`,
-                    category: 'Ecard',
-                    title: `Ecard ${i + 1}`,
-                    description: 'Diseño de tarjeta digital profesional'
-                })),
-                // Logos (4)
-                ...Array.from({length: 4}, (_, i) => ({
-                    url: `IMAGENES/LOGOS/logo ${i + 1}.png`,
-                    category: 'Logo',
-                    title: `Logo ${i + 1}`,
-                    description: 'Identidad visual y branding'
-                })),
-                // Web Design (4)
-                ...Array.from({length: 4}, (_, i) => ({
-                    url: `IMAGENES/WEBISSSOR WEB/${i + 1}.png`,
-                    category: 'Web Design',
-                    title: `Diseño Web ${i + 1}`,
-                    description: 'Diseño para redes sociales y web'
-                }))
-            ];
-
-            // Elementos del DOM
-            const imageGrid = document.getElementById('imageGrid');
-            const modal = document.getElementById('imageModal');
-            const modalImage = document.getElementById('modalImage');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalCategory = document.getElementById('modalCategory');
-            const closeModal = document.getElementById('closeModal');
-            const prevBtn = document.getElementById('prevImage');
-            const nextBtn = document.getElementById('nextImage');
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            const totalCountSpan = document.getElementById('totalCount');
-            const visibleCountSpan = document.getElementById('visibleCount');
-            
-            let currentIndex = 0;
-            let filteredImages = [...portfolioImages];
-            let currentFilteredIndex = 0;
-
-            // Actualizar contador total
-            totalCountSpan.textContent = portfolioImages.length;
-
-            // Renderizar grid
-            function renderImages(images) {
-                imageGrid.innerHTML = '';
-                images.forEach((img, index) => {
-                    const item = document.createElement('div');
-                    item.className = 'image-item';
-                    item.dataset.index = index;
-                    item.dataset.category = img.category;
-                    item.innerHTML = `
-                        <div class="image-thumbnail">
-                            <img src="${img.url}" alt="${img.title}" loading="lazy">
-                        </div>
-                        <div class="image-overlay">
-                            <span class="image-category">${img.category.toUpperCase()}</span>
-                            <h3>${img.title}</h3>
-                            <p>${img.description}</p>
-                        </div>
-                    `;
-                    item.addEventListener('click', () => openModal(index));
-                    imageGrid.appendChild(item);
-                });
-                
-                // Actualizar contador visible
-                visibleCountSpan.textContent = images.length;
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
             }
+        });
 
-            // Abrir modal
-            function openModal(index) {
-                currentFilteredIndex = index;
-                // Encontrar el índice real en el array completo
-                const actualImage = filteredImages[index];
-                currentIndex = portfolioImages.findIndex(img => 
-                    img.url === actualImage.url && img.title === actualImage.title
-                );
-                
-                updateModalImage();
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-
-            // Actualizar modal
-            function updateModalImage() {
-                const image = portfolioImages[currentIndex];
-                modalImage.src = image.url;
-                modalImage.alt = image.title;
-                modalTitle.textContent = image.title;
-                modalCategory.textContent = image.category;
-            }
-
-            // Cerrar modal
-            function closeModalHandler() {
-                modal.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-
-            // Navegación
-            function nextImage() {
-                currentIndex = (currentIndex + 1) % portfolioImages.length;
-                updateModalImage();
-            }
-
-            function prevImage() {
-                currentIndex = (currentIndex - 1 + portfolioImages.length) % portfolioImages.length;
-                updateModalImage();
-            }
-
-            // Filtros
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    
-                    const filter = btn.dataset.filter;
-                    if (filter === 'all') {
-                        filteredImages = [...portfolioImages];
-                    } else {
-                        filteredImages = portfolioImages.filter(img => img.category === filter);
-                    }
-                    
-                    renderImages(filteredImages);
-                });
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
             });
+        });
 
-            // Event listeners
-            closeModal.addEventListener('click', closeModalHandler);
-            nextBtn.addEventListener('click', nextImage);
-            prevBtn.addEventListener('click', prevImage);
-
-            // Teclas
-            document.addEventListener('keydown', (e) => {
-                if (!modal.classList.contains('active')) return;
-                
-                if (e.key === 'Escape') closeModalHandler();
-                if (e.key === 'ArrowRight') nextImage();
-                if (e.key === 'ArrowLeft') prevImage();
-            });
-
-            // Cerrar haciendo clic fuera
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) closeModalHandler();
-            });
-
-            // Render inicial
-            renderImages(portfolioImages);
+        // Parallax effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const video = document.querySelector('.video-bg');
+            if (video) {
+                video.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
         });
     </script>
 </body>
