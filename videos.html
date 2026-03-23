@@ -547,59 +547,83 @@
             // TUS 8 VIDEOS DE GOOGLE DRIVE
             // ============================================
             const videos = [
-                {
+              {
                     id: '1EozihR0yINGX28pOrgiL_zliqObLm9jy',
                     title: 'Video 1 - Edición Cinematográfica',
                     category: 'edicion',
                     description: 'Edición profesional con estilo cinematográfico'
                 },
                 {
+                    id: '1EozihR0yINGX28pOrgiL_zliqObLm9jy',
+                    title: 'Video 2 - Edición Cinematográfica',
+                    category: 'edicion',
+                    description: 'Edición profesional con estilo cinematográfico'
+                },
+                {
                     id: '1bu0R3x--pqitbIrR8qygVQLMOrWywfrU',
-                    title: 'Video 2 - Colorización',
+                    title: 'Video 3 - Colorización',
                     category: 'color',
                     description: 'Gradación de color y corrección cromática'
                 },
                 {
                     id: '1bz3mxyMeyPC8m0A_AXy2Dikby9Hi2aQc',
-                    title: 'Video 3 - Motion Graphics',
+                    title: 'Video 4 - Motion Graphics',
                     category: 'motion',
                     description: 'Animación y gráficos en movimiento'
                 },
                 {
                     id: '1R8TfFOWLFOLI-owSUKVIW7gL9M-1l2L1',
-                    title: 'Video 4 - Edición Creativa',
+                    title: 'Video 5 - Edición Creativa',
                     category: 'edicion',
                     description: 'Edición dinámica para redes sociales'
                 },
                 {
                     id: '1tigRlqmoxGhUvKX87NejV174TqMzprHp',
-                    title: 'Video 5 - Color Grading',
+                    title: 'Video 6 - Color Grading',
                     category: 'color',
                     description: 'Look cinematográfico profesional'
                 },
                 {
                     id: '16WkxqHBIJ3X0r9paj5Ywtduayt2uZhGU',
-                    title: 'Video 6 - Animación',
+                    title: 'Video 7 - Animación',
                     category: 'motion',
                     description: 'Motion graphics y tipografía animada'
                 },
                 {
                     id: '1wwWHQ-rvYl8S3vByKrQnxrkfCOwBqB6f',
-                    title: 'Video 7 - Edición Avanzada',
+                    title: 'Video 8 - Edición Avanzada',
                     category: 'edicion',
                     description: 'Edición multicámara y efectos'
                 },
+                
+{
+    id: '1alRsdIII1B0p9VM843r87IBUEY-KekLf',
+    title: 'Video 9 - Nuevo Proyecto',
+    category: 'edicion',
+    description: 'Nuevo video agregado a tu portafolio',
+    thumbnail: 'https://images.unsplash.com/photo-1601933470928-c9c7c2b3a1c0?w=400'
+},
+{
+    id: '1QLaWZgeToVPKuxuSO3qiVtAFkR0TPsjG',
+    title: 'Video 10 - Nuevo Proyecto',
+    category: 'motion',
+    description: 'Nuevo video agregado a tu portafolio',
+    thumbnail: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400'
+},
+
+
                 {
                     id: '1ACvpp0J8fz4LGZRTaodVDAqMT-87I6LU',
-                    title: 'Video 8 - Composición',
+                    title: 'Video 10 - Composición',
                     category: 'motion',
                     description: 'Composición digital y efectos visuales'
                 }
+                
             ];
 
             // Miniaturas predefinidas (puedes personalizarlas)
             const thumbnails = [
-                'https://images.unsplash.com/photo-1536240474400-95dad987e44f?w=400',
+                'https://ix-marketing.imgix.net/global.jpg?auto=format,compress&w=1446',
                 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=400',
                 'https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=400',
                 'https://images.unsplash.com/photo-1578022761797-b8636ac1773c?w=400',
@@ -630,7 +654,7 @@
                     videoCard.dataset.category = video.category;
                     videoCard.innerHTML = `
                         <div class="video-thumbnail">
-                            <img src="${thumbnails[index % thumbnails.length]}" alt="${video.title}">
+                            <img src="${video.thumbnail || thumbnails[index % thumbnails.length]}" alt="${video.title}">
                             <div class="play-overlay">
                                 <div class="play-icon">
                                     <i class="fas fa-play"></i>
